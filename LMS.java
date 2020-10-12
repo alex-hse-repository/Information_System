@@ -281,8 +281,8 @@ public class LMS {
 			public void actionPerformed(ActionEvent e) {
 				// U0_login_and_password_check(IN email VARCHAR(45), IN password_ CHAR(8), OUT
 				// result_status TINYINT)
-				//user :"apchikov@mybase.ru"
-				//password : 53713069
+				// user :"apchikov@mybase.ru"
+				// password : 53713069
 				String name = fldLogin.getText();
 				String password = new String(fldPassword.getPassword());
 				String procedure = "U0_login_and_password_check";
@@ -375,8 +375,9 @@ public class LMS {
 
 		table = new JTable();
 		spTimetable.setViewportView(table);
-		
-		lblNO = new JLabel("\u0417\u0430\u043D\u044F\u0442\u0438\u044F \u043E\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u044E\u0442!");
+
+		lblNO = new JLabel(
+				"\u0417\u0430\u043D\u044F\u0442\u0438\u044F \u043E\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u044E\u0442!");
 		lblNO.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNO.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNO.setBounds(260, 120, 379, 25);
@@ -1581,8 +1582,8 @@ public class LMS {
 
 		JComboBox cbBuilding_9 = new JComboBox();
 		cbBuilding_9.setFont(new Font("Tahoma", Font.BOLD, 15));
-		cbBuilding_9
-				.setModel(new DefaultComboBoxModel(new String[] {"\u041A\u043E\u0440\u043F\u0443\u0441", "\u0410", "\u0411"}));
+		cbBuilding_9.setModel(
+				new DefaultComboBoxModel(new String[] { "\u041A\u043E\u0440\u043F\u0443\u0441", "\u0410", "\u0411" }));
 		cbBuilding_9.setSelectedIndex(0);
 		cbBuilding_9.setBounds(565, 79, 109, 25);
 		pnlCreateCabinet.add(cbBuilding_9);
@@ -1679,17 +1680,16 @@ public class LMS {
 				try {
 					ResultSet response = db.request(procedure, names, types, values);
 					int code = db.getStatus();
-					if(response==null) {
+					if (response == null) {
 						lblNO.setVisible(true);
 						spTimetable.setVisible(false);
-					}
-					else {
-					JTable table = fill_table(response);
-					table.setEnabled(false);
-					spTimetable.setForeground(Color.GREEN);
-					spTimetable.setViewportView(table);
-					lblNO.setVisible(false);
-					spTimetable.setVisible(true);
+					} else {
+						JTable table = fill_table(response);
+						table.setEnabled(false);
+						spTimetable.setForeground(Color.GREEN);
+						spTimetable.setViewportView(table);
+						lblNO.setVisible(false);
+						spTimetable.setVisible(true);
 					}
 				} catch (SQLException e1) {
 					e1.printStackTrace();

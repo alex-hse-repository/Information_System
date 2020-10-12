@@ -13,11 +13,11 @@ public class DataBase {
 
 	public DataBase() {
 		try {
-            Driver driver = new com.mysql.jdbc.Driver();
-        } catch (SQLException e) {
-            System.out.println("Unable to load driver class.");
-            e.printStackTrace();
-        }
+			Driver driver = new com.mysql.jdbc.Driver();
+		} catch (SQLException e) {
+			System.out.println("Unable to load driver class.");
+			e.printStackTrace();
+		}
 		try {
 			// opening database connection to MySQL server
 			con = DriverManager.getConnection(url, user, password);
@@ -76,7 +76,7 @@ public class DataBase {
 		for (int i = 0; i < nrow; i++) {
 			resp.next();
 			for (int j = 0; j < ncol; j++) {
-				content[i][j] = resp.getString(j+1);
+				content[i][j] = resp.getString(j + 1);
 			}
 		}
 		return content;
